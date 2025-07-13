@@ -76,8 +76,8 @@ app.delete('/api/remove', async (_req: Request, res: Response, next: NextFunctio
   }
 });
 
-app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-  res.status(500).json({ error: 'Internal server error', details: process.env.NODE_ENV === 'development' ? err?.message : undefined });
+app.use((err: Error, _req: Request, res: Response) => {
+  res.status(500).json({ error: 'Internal server error', details: process.env.NODE_ENV === 'development' ? err.message : undefined });
 });
 
 export { app, db, setDb, isValidRoman, romanToArabic, arabicToRoman, getOrInsertConversion };

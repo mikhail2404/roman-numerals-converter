@@ -19,7 +19,7 @@ export function ConversionResult({ result, error }: ConversionResultProps) {
       {error ? (
         <span>
           <span className="font-medium" data-testid="conversion-error-label">
-            Error: <span data-testid="conversion-error">{error}</span>
+            Error: {error}
           </span>
         </span>
       ) : result ? (
@@ -28,7 +28,7 @@ export function ConversionResult({ result, error }: ConversionResultProps) {
             className="font-bold text-green-800"
             data-testid="conversion-result-label"
           >
-            Result: <span data-testid="conversion-result-value">{result}</span>
+            Result: {result}
           </span>
         </div>
       ) : null}

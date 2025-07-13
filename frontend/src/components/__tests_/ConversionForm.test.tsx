@@ -37,9 +37,8 @@ describe("ConversionForm", () => {
     await userEvent.type(input, "XLII");
     await userEvent.click(screen.getByRole("button", { name: /Convert/i }));
     await waitFor(() =>
-      expect(screen.getByText(/Result:/)).toBeInTheDocument()
+      expect(screen.getByText(/Result: 42/)).toBeInTheDocument()
     );
-    expect(screen.getByText("42")).toBeInTheDocument();
   });
 
   it("shows result after successful conversion (arabic to roman)", async () => {
@@ -50,9 +49,8 @@ describe("ConversionForm", () => {
     await userEvent.type(input, "42");
     await userEvent.click(screen.getByRole("button", { name: /Convert/i }));
     await waitFor(() =>
-      expect(screen.getByText(/Result:/)).toBeInTheDocument()
+      expect(screen.getByText(/Result: XLII/)).toBeInTheDocument()
     );
-    expect(screen.getByText("XLII")).toBeInTheDocument();
   });
 
   it("shows error for invalid input", async () => {

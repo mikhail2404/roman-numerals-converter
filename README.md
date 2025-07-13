@@ -43,7 +43,7 @@ yarn dev
 ### With Docker Compose
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 - Frontend: http://localhost:4173
 - Backend: http://localhost:3001

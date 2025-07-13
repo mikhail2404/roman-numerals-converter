@@ -1,9 +1,10 @@
 import request from 'supertest';
-import { open } from 'sqlite';
+import { open, Database } from 'sqlite';
 import sqlite3 from 'sqlite3';
 import { app, setDb } from '../index';
+import { Conversion } from "../types/Conversion";
 
-let db: any;
+let db: Database;
 
 describe('API', () => {
   beforeAll(async () => {
@@ -43,8 +44,8 @@ describe('API', () => {
   it('deduplicates conversions', async () => {
     await request(app).get('/api/roman/10');
     await request(app).get('/api/roman/10');
-    const all = await request(app).get('/api/all');
-    expect(all.body.filter((r: any) => r.inputValue === '10').length).toBe(1);
+    const conversions = await request(app).get('/api/all');
+    expect(conversions.body.filter((conversion: Conversion) => conversion.inputValue === '10').length).toBe(1);
   });
   it('lists all conversions', async () => {
     await request(app).get('/api/roman/5');
@@ -58,7 +59,7 @@ describe('API', () => {
     const del = await request(app).delete('/api/remove');
     expect(del.status).toBe(200);
     expect(typeof del.body.deleted).toBe('number');
-    const all = await request(app).get('/api/all');
-    expect(all.body.length).toBe(0);
+    const conversions = await request(app).get('/api/all');
+    expect(conversions.body.length).toBe(0);
   });
 }); 
