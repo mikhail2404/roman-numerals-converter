@@ -17,6 +17,10 @@ node_modules/
 .env.*.local
 *.local
 
+# Database files
+database/conversions.db
+*.db
+
 # Editor directories and files
 .vscode/
 !.vscode/extensions.json

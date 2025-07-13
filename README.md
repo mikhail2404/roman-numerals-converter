@@ -15,6 +15,21 @@
   <a href="https://github.com/codica2" target="_blank"><img src="https://img.shields.io/badge/licence-MIT-green.svg" /></a>
 </p>
 
+## Node.js version
+
+This project uses the Node.js version specified in the `.nvmrc` file.
+
+Before running any scripts, make sure you are using the correct Node.js version:
+
+```sh
+nvm use
+```
+If you do not have the version installed, run:
+```sh
+nvm install
+nvm use
+```
+
 ## Project stack
 
 - React.js (Vite frontend)
@@ -43,7 +58,7 @@ yarn dev
 ### With Docker Compose
 
 ```bash
-docker compose up --build
+docker-compose up --build
 ```
 - Frontend: http://localhost:4173
 - Backend: http://localhost:3001
