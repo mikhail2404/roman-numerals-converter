@@ -48,7 +48,8 @@ nvm use
 cd frontend
 yarn install
 yarn dev
-
+```
+```bash
 # Backend
 cd backend
 yarn install
@@ -58,7 +59,7 @@ yarn dev
 ### With Docker Compose
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 - Frontend: http://localhost:4173
 - Backend: http://localhost:3001
